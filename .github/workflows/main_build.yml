@@ -8,9 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '13.x'
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
@@ -28,4 +28,4 @@ jobs:
     runs-on: ubuntu-latest
     name: Directory check
     steps:
-      run: ls -la
+      - run: ls -la
