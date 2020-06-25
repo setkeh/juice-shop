@@ -23,6 +23,7 @@ jobs:
       - name: njsscan
         id: njsscan
         uses: ajinabraham/njsscan-action@v5
+        if: failure()
         with:
           args: '. --output sast-result'
       - run: ls -la     
