@@ -1,0 +1,31 @@
+name: "Build and Scan JuiceShop"
+
+on: [push]
+
+jobs:
+  build-juice-shop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test
+  njsscan:
+    runs-on: ubuntu-latest
+    name: njsscan check
+    steps:
+      - uses: actions/checkout@v1
+      - name: njsscan
+        id: njsscan
+        uses: ajinabraham/njsscan-action@v5
+        with:
+          args: '. --output sast-result'
+  DirCheck:
+    runs-on: ubuntu-latest
+    name: Directory check
+    steps:
+      run: ls -la
