@@ -9,14 +9,29 @@
 
   ignore-filenames:
   - skip.js
+  - Dockerfile
+  - ctf.key
+  - LICENSE
 
   ignore-paths:
   - __MACOSX
   - skip_dir
   - node_modules
+  - vagrant
+  - .github
+  - .zap
+  - config
+  - docs
+  - encryptionkeys
+  - monitoring
+  - i18n
+  - hooks
+  - frontend/src/assets/private
 
   ignore-extensions:
   - .jsx
+  - .md
+  - .yml
 
   ignore-rules:
   - regex_injection_dos
