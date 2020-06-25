@@ -25,8 +25,6 @@ jobs:
         uses: ajinabraham/njsscan-action@v5
         with:
           args: '. --output sast-result'
-      - run: ls -la
-        if: failure()
       - name: Upload Report artifact when job fails
         if: failure()
         uses: actions/upload-artifact@v1
