@@ -27,3 +27,14 @@ jobs:
           args: '. --output sast-result'
       - run: ls -la
         if: failure()
+      - name: Upload Report artifact when job fails
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: sast-report-failure
+          path: ./sast-result
+      - name: Upload Report artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: sast-report
+          path: ./sast-result
